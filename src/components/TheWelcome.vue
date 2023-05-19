@@ -8,6 +8,7 @@ interface IMovie {
   imdbID: string;
   Poster: string;
   Title: string;
+  Plot: string;
   Year: string;
 }
 
@@ -20,6 +21,12 @@ const search = async () => {
     console.log(response.data);
     if(response.data && response.data.Search) {
       movies.value = response.data.Search;
+      console.log(movies.value);
+
+      for(const movie of movies.value) {
+        const movieResponse = await axios.get(`http://www.omdbapi.com/?i=${movie.imdbID}&apikey=${API_KEY}`)
+        movie.Plot = movieResponse.data.Plot;
+      }
       console.log(movies.value)
       //save in localStorage?
     }
@@ -45,29 +52,31 @@ const resetBtn = () => {
 <template>
   <main>
     <h3>Let's search for a movie!</h3>
-    <div class="container">
-      <div class="input_wrapper">
+    <div class='container'>
+      <div class='input_wrapper'>
         <label for='searchInput'>
           <input type='text' class="search-input" id='searchInput' placeholder='Type here' v-model='searchWord' @keydown.enter='search'>
           <span></span>
         </label>
       </div>
-      <button class="glow-on-hover" id="searchBtn" @click="search">SEARCH</button>
-      <button class="reset" @click="resetBtn">Reset</button>
+      <button class='glow-on-hover' id='searchBtn' @click='search'>SEARCH</button>
+      <button class='reset' @click="resetBtn">Reset</button>
     </div>
  
+  <p v-if="movies.length > 0">your result:</p>
   <div class='div-wrapper'>
-    <p v-if="movies.length > 0">your result:</p>
     <div class='movie-container' v-for='movie in movies' :key='movie.imdbID'>
-      <div class="upper">
-        <img class="img-poster" :src='movie.Poster === "N/A" ? "/placeholder.png" : movie.Poster' width="375"/>
+      <div class='upper'>
+        <img class='img-poster' :src='movie.Poster === "N/A" ? "/placeholder.png" : movie.Poster' width='375'/>
         <h4>{{ movie.Title }}</h4>
-        <p class="movie-year">{{ movie.Year }}</p>
+        <p class='movie-year'>{{ movie.Year }}</p>
+        <p class="movie-plot">{{ movie.Plot}}</p>
       </div>
-      <div class="down">
+      <div class='down'>
         <button class='read-more-btn' @click='goto(movie.imdbID)'>READ MORE >></button>
       </div>
     </div>
+
   </div>
 </main>
 
