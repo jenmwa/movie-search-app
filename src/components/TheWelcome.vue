@@ -19,6 +19,7 @@ const search = async () => {
   try {
     const response = await axios.get(`http://www.omdbapi.com/?s=${searchWord.value}&apikey=${API_KEY}`)
     console.log(response.data);
+
     if(response.data && response.data.Search) {
       movies.value = response.data.Search;
       console.log(movies.value);
@@ -65,9 +66,9 @@ const resetBtn = () => {
  
   <p v-if="movies.length > 0">your result:</p>
   <div class='div-wrapper'>
-    <div class='movie-container' v-for='movie in movies' :key='movie.imdbID'>
+    <article class='movie-container' v-for='movie in movies' :key='movie.imdbID'>
       <div class='upper'>
-        <img class='img-poster' :src='movie.Poster === "N/A" ? "/placeholder.png" : movie.Poster' width='375'/>
+        <img class='img-poster' :src='movie.Poster === "N/A" ? "/placeholder.png" : movie.Poster' width='375' :alt="'movieposter for ' + movie.Title"/>
         <h4>{{ movie.Title }}</h4>
         <p class='movie-year'>{{ movie.Year }}</p>
         <p class="movie-plot">{{ movie.Plot}}</p>
@@ -75,7 +76,7 @@ const resetBtn = () => {
       <div class='down'>
         <button class='read-more-btn' @click='goto(movie.imdbID)'>READ MORE >></button>
       </div>
-    </div>
+    </article>
 
   </div>
 </main>
@@ -233,7 +234,7 @@ h4 {
 }
 
 .movie-year{
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 .read-more-btn{
   width: 100%;
