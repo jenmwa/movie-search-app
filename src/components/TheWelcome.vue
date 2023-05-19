@@ -13,7 +13,9 @@ interface IMovie {
 }
 
 const searchWord = ref('');
-const movies = ref<IMovie[]>([])
+const movies = ref<IMovie[]>(
+  JSON.parse(localStorage.getItem('movies') || "[]"));
+
 
 const search = async () => {
   try {
@@ -29,7 +31,7 @@ const search = async () => {
         movie.Plot = movieResponse.data.Plot;
       }
       console.log(movies.value)
-      //save in localStorage?
+      localStorage.setItem('movies', JSON.stringify(response.data.Search))
     }
   } catch (error) {
     console.error('API request failed:', error);
@@ -46,6 +48,7 @@ const resetBtn = () => {
   console.log('click reset');
   searchWord.value = '';
   movies.value = [];
+  localStorage.removeItem('movies');
 }
 
 </script>
@@ -72,14 +75,17 @@ const resetBtn = () => {
           <img class='img-poster' :src='movie.Poster === "N/A" ? "/placeholder.png" : movie.Poster' width='375' :alt="'movieposter for ' + movie.Title"/>
         </div>
         <div class="movie-text">
-          <h4>{{ movie.Title }}</h4>
-          <span class='movie-year'>{{ movie.Year }}</span>
-          <p class="movie-plot">{{ movie.Plot}}</p>
+          <div class="text-upper">
+            <h4>{{ movie.Title }}</h4>
+            <span class='movie-year'>{{ movie.Year }}</span>
+            <p class="movie-plot">{{ movie.Plot}}</p>
+          </div>
+          <div class='down'>
+            <button class='read-more-btn' @click='goto(movie.imdbID)'>READ MORE >></button>
+          </div>
         </div>
       </div>
-      <div class='down'>
-        <button class='read-more-btn' @click='goto(movie.imdbID)'>READ MORE >></button>
-      </div>
+    
     </article>
 
   </div>
@@ -218,13 +224,11 @@ h4 {
 }
 
 .div-wrapper{
-  /* border: 1px solid #FEE187; */
   margin-block: 2rem;
   }
 
 .movie-container {
   border: 2px solid #D3D3D3;
-  /* background-color: #192A56; */
   margin-bottom: 1rem;
   padding: 1rem;
   display: flex;
@@ -235,10 +239,7 @@ h4 {
 
 .movie_img {
   position: relative;
-  /* min-width: 15rem;
-  max-width: 15rem; */
   height: 33rem;
-  /* transform: translateX(-8rem); */
 }
 
 .img-poster {
@@ -255,6 +256,7 @@ h4 {
 .read-more-btn{
   width: 100%;
   border: 4px solid  #FEE187;
+  margin-top: 2rem;
 
 }
 
@@ -284,15 +286,9 @@ h4 {
     margin-left: 2rem;
   }
 
-  .div-wrapper{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-  }
-
   .movie-container {
     min-width: 100%;
-    justify-content: space-between;
+    /* justify-content: space-between; */
   }
 
   .upper {
@@ -300,19 +296,20 @@ h4 {
   }
 
   .movie_img {
-  width: 50%;
+    width: 50%;
+  }
 
-}
+  .movie-text {
+    margin-left: 2rem;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-.movie-text {
-  margin-left: 2rem;
-  width: 40%;
-}
-
-.read-more-btn{
-  margin-top: 2rem;
-}
-
+  .read-more-btn{
+    margin-top: 2rem;
+  }
 
 }
 
@@ -324,15 +321,26 @@ h4 {
     margin: 0;
   }
 
+  .glow-on-hover, .reset {
+    width: 240px;
+    margin-left: 2rem;
+  }
+
+  .div-wrapper {
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
   .movie-container {
-    max-width: 200px;
+    width: calc(50% - 12px);
   }
 
   .read-more-btn{
   text-align: left;
   padding-left: 1rem;
-
-}
+  }
 }
 
 </style>
