@@ -3,13 +3,15 @@
 
 <template>
   <footer>
-    <p>this is the footer</p>
+    <p>Jenny Waller 2023<br>
+      <a href="mailto:hej@jenwaller.se" target="_blank">hej@jenwaller.se</a>
+    </p>
   </footer>
 </template>
 
 <style scoped>
 footer {
-  background-color: #192A56;
+  background-color: #0e0326;
   padding: 16px 0;
   position: absolute;
   right: 0;
