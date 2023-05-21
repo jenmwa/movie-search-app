@@ -169,6 +169,7 @@ button {
 
 .reset {
   border: 2px solid #D3D3D3;
+  margin-bottom:6rem;
 }
 
 .glow-on-hover {
