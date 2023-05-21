@@ -32,34 +32,31 @@
 </template>
 
 <style>
+.about {
+  max-width: 400px;
+  margin: 0 auto 6rem auto;
+}
 
-  .about {
-    max-width: 400px;
-    margin: 0 auto 6rem auto;
-  }
+h3 {
+  font-size: 2rem;
+  margin-block: 2rem;
+  text-align: center;
+}
 
-  h3 {
-    font-size: 2rem;
-    margin-block: 2rem;
-    text-align: center;
-  }
+h4 {
+  font-size: 1.5rem;
+}
 
-  h4 {
-    font-size: 1.5rem;
-  }
+p {
+  margin-bottom: 1rem;
+}
 
-  p {
-    margin-bottom: 1rem;
-  }
-
-  .p-last {
-    margin-top: 4rem;
-  }
+.p-last {
+  margin-top: 4rem;
+}
 
 
 @media screen and (min-width: 768px) {
-
-
   .about {
     max-width: 600px;
   }
@@ -78,11 +75,10 @@
 
 
 @media screen and (min-width: 1024px) {
-
   .about {
   max-width: 800px;
   margin: 0;
-}
+  }
 }
 
 </style>
