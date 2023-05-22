@@ -52,8 +52,8 @@ const resetBtn = () => {
           <span></span>
         </label>
       </div>
-      <button class='glow-on-hover search-btn' id='searchBtn' @click='search'>SEARCH</button>
-      <button class='reset' @click="resetBtn">Reset</button>
+      <button class='search-btn' id='searchBtn' @click='search'>SEARCH</button>
+      <button class='reset-btn' @click="resetBtn">Reset</button>
     </div>
     <MoviesComponent :movies="movies" />
 </main>
@@ -61,7 +61,6 @@ const resetBtn = () => {
 </template>
 
 <style scoped>
-
 main {
 max-width: 400px;
 margin: 0 auto;
@@ -134,7 +133,7 @@ button {
   margin-bottom: 1rem;
 }
 
-.reset {
+.reset-btn {
   border: 2px solid #D3D3D3;
   margin-bottom:6rem;
 }
@@ -172,7 +171,7 @@ button {
     opacity: 1;
 }
 
-.search-btnr:after {
+.search-btn:after {
   z-index: -1;
   content: '';
   position: absolute;
@@ -209,7 +208,7 @@ button {
     height: 2.4rem;
   }
 
-  .search-btn, .reset {
+  .search-btn, .reset-btn {
     width: 25%;
     margin-left: 2rem;
   }
@@ -249,7 +248,7 @@ button {
     margin: 0;
   }
 
-  .search-btn, .reset {
+  .search-btn, .reset-btn {
     width: 240px;
     margin-left: 2rem;
   }
