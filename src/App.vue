@@ -67,6 +67,7 @@ nav a:first-of-type {
   }
 
   .logo {
+    scale:1.2;
     margin: 0 2rem 0 0;
   }
 

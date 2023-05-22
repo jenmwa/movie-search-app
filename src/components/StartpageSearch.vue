@@ -136,6 +136,10 @@ button {
   margin-bottom:6rem;
 }
 
+.reset-btn:hover, .reset-btn:focus {
+  font-weight: bold;
+}
+
 .search-btn {
   background-color: #FEE187;
   position: relative;
