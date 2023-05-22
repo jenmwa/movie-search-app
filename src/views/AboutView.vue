@@ -20,7 +20,7 @@
         <li>You'll get the poster, title, year and the plot for the movie, and if you want to read more about the movie, just blick the button and you'll eget to Imdb.com</li>
         <li>Ready to search for another movie?<br>
         Go ahead!</li>
-        <li>And if you accidently refresh the page or walk through the menu, the previous search result is saved to localStorage and will show.</li>
+        <li>And if you accidently refresh the page or walk through the menu, the previous search result is saved to sessionStorage and will show.</li>
         <li>Start over? <br>just hit refresh!</li>
        </ul>
 
@@ -48,6 +48,13 @@ h4 {
 
 p {
   margin-bottom: 1rem;
+}
+
+.p-text {
+  color: $lightyellow;
+  font-style: italic;
+  font-size: smaller;
+  margin-bottom: 2rem;
 }
 
 .p-last {

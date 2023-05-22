@@ -7,7 +7,7 @@ import MoviesComponent from '../components/MoviesComponent.vue'
 
 const searchWord = ref('');
 const movies = ref<IMovie[]>(
-  JSON.parse(localStorage.getItem('movies') || "[]")
+  JSON.parse(sessionStorage.getItem('movies') || "[]")
 );
 
 
@@ -25,7 +25,7 @@ const search = async () => {
         movie.Plot = movieResponse.data.Plot;
       }
       console.log(movies.value)
-      localStorage.setItem('movies', JSON.stringify(response.data.Search))
+      sessionStorage.setItem('movies', JSON.stringify(response.data.Search))
     }
   } catch (error) {
     console.error('API request failed:', error);
@@ -33,16 +33,11 @@ const search = async () => {
   searchWord.value = '';
 }
 
-// const goto = (imdbID: string) => {
-//   const url = `https://www.imdb.com/title/${imdbID}/`;
-//   window.open(url, '_blank');
-// };
-
 const resetBtn = () => {
   console.log('click reset');
   searchWord.value = '';
   movies.value = [];
-  localStorage.removeItem('movies');
+  sessionStorage.removeItem('movies');
 }
 
 </script>
