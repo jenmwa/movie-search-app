@@ -10,7 +10,6 @@ const movies = ref<IMovie[]>(
   JSON.parse(sessionStorage.getItem('movies') || "[]")
 );
 
-
 const search = async () => {
   try {
     const response = await axios.get(`http://www.omdbapi.com/?s=${searchWord.value}&apikey=${API_KEY}`)
@@ -39,7 +38,6 @@ const resetBtn = () => {
   movies.value = [];
   sessionStorage.removeItem('movies');
 }
-
 </script>
 
 <template>
