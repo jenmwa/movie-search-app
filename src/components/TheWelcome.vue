@@ -2,19 +2,21 @@
 import axios from 'axios'
 import { ref } from 'vue'
 import { API_KEY } from '../config'
+// type IMovie = import('../models/IMovie').IMovie;
+import { type IMovie } from '../models/IMovie'
 
-
-interface IMovie {
-  imdbID: string;
-  Poster: string;
-  Title: string;
-  Plot: string;
-  Year: string;
-}
+// interface IMovie {
+//   imdbID: string;
+//   Poster: string;
+//   Title: string;
+//   Plot: string;
+//   Year: string;
+// }
 
 const searchWord = ref('');
 const movies = ref<IMovie[]>(
-  JSON.parse(localStorage.getItem('movies') || "[]"));
+  JSON.parse(localStorage.getItem('movies') || "[]")
+);
 
 
 const search = async () => {
@@ -59,11 +61,11 @@ const resetBtn = () => {
     <div class='container'>
       <div class='input_wrapper'>
         <label for='searchInput'>
-          <input type='text' class="search-input" id='searchInput' placeholder='Type here' v-model='searchWord' @keydown.enter='search'>
+          <input type='text' class="search-input" id='searchInput' placeholder='Type your Movie Title here' v-model='searchWord' @keydown.enter='search'>
           <span></span>
         </label>
       </div>
-      <button class='glow-on-hover' id='searchBtn' @click='search'>SEARCH</button>
+      <button class='glow-on-hover search-btn' id='searchBtn' @click='search'>SEARCH</button>
       <button class='reset' @click="resetBtn">Reset</button>
     </div>
  
@@ -172,7 +174,8 @@ button {
   margin-bottom:6rem;
 }
 
-.glow-on-hover {
+.search-btn {
+  background-color: #FEE187;
   position: relative;
   z-index: 0;
   color: black;
@@ -180,7 +183,7 @@ button {
   border: 4px solid #FFC61B;
 }
 
-.glow-on-hover:before {
+.search-btn:before {
   content: '';
   background: linear-gradient(45deg, #FFC61B, #FEE187,  #D3D3D3, #FEE187,  #FFC61B,  #FEE187, #D3D3D3,  #FEE187, #FFC61B);
   position: absolute;
@@ -196,15 +199,15 @@ button {
   transition: opacity .3s ease-in-out;
 }
 
-.glow-on-hover:active:after {
+.search-btn:active:after {
     background: transparent;
 }
 
-.glow-on-hover:hover:before {
+.search-btn:hover:before {
     opacity: 1;
 }
 
-.glow-on-hover:after {
+.search-btnr:after {
   z-index: -1;
   content: '';
   position: absolute;
@@ -284,7 +287,7 @@ h4 {
     height: 2.4rem;
   }
 
-  .glow-on-hover, .reset {
+  .search-btn, .reset {
     width: 25%;
     margin-left: 2rem;
   }
@@ -324,7 +327,7 @@ h4 {
     margin: 0;
   }
 
-  .glow-on-hover, .reset {
+  .search-btn, .reset {
     width: 240px;
     margin-left: 2rem;
   }

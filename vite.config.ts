@@ -10,5 +10,16 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  base: '', /*github.com/jenmwa/ VÅR BASE*/
+  define: {
+    'process.env': {},
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import "./src/assets/_variables.scss";',
+      },
+    },
+  },
 })
