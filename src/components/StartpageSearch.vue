@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import axios from 'axios'
 import { ref } from 'vue'
-import { API_KEY } from '../config'
+// import { API_KEY } from '../config'
 import { type IMovie } from '../models/IMovie'
 import MoviesComponent from '../components/MoviesComponent.vue'
 
@@ -12,7 +12,7 @@ const movies = ref<IMovie[]>(
 
 const search = async () => {
   try {
-    const response = await axios.get(`http://www.omdbapi.com/?s=${searchWord.value}&apikey=${API_KEY}`)
+    const response = await axios.get(`http://www.omdbapi.com/?s=${searchWord.value}&apikey=5eed9320`)
     console.log(response.data);
 
     if(response.data && response.data.Search) {
@@ -20,7 +20,7 @@ const search = async () => {
       console.log(movies.value);
 
       for(const movie of movies.value) {
-        const movieResponse = await axios.get(`http://www.omdbapi.com/?i=${movie.imdbID}&apikey=${API_KEY}`)
+        const movieResponse = await axios.get(`http://www.omdbapi.com/?i=${movie.imdbID}&apikey=5eed9320`)
         movie.Plot = movieResponse.data.Plot;
       }
       console.log(movies.value)
