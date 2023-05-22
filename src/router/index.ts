@@ -5,12 +5,12 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: '/movie-search-app/',
+      path: '/',
       name: 'home',
       component: HomeView
     },
     {
-      path: '/movie-search-app/about',
+      path: '/abour',
       name: 'about',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
