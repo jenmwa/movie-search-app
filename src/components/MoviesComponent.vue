@@ -18,7 +18,7 @@ const goto = (imdbID: string) => {
 
 <template>
 <section class="result">
-  <p v-if="movies.length > 0">your result:</p>
+  <p v-if="movies.length > 0">your top 10 result:</p>
   <div class='div-wrapper'>
     <article class='movie-container' v-for='movie in movies' :key='movie.imdbID'>
       <div class='upper'>
