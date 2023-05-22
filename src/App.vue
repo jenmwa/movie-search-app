@@ -13,8 +13,8 @@ import FooterComponent from './components/FooterComponent.vue';
       <HelloWorld msg="Welcome to My Vue project!" />
 
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/movie-search-app/">Home</RouterLink>
+        <RouterLink to="/movie-search-app/about">About</RouterLink>
       </nav>
     </div>
   </header>
