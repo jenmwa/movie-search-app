@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import StartpageSearch from '../components/StartpageSearch.vue'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <StartpageSearch />
   </main>
 </template>

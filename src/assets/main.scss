@@ -1,12 +1,15 @@
 @import './base.scss';
+@import './variables';
 
-/*
-darkYellow = FFC61B
-lightyellow = FEE187
-darkBlue =  #192A56
-lightgrey:  #D3D3D3
-background: #282828
-*/
+
+// :root {
+//   --darkYellow: $darkYellow;
+//   --lightyellow: $lightyellow;
+//   --darkBlue: $darkBlue;
+//   --lightgrey: $lightgrey;
+//   --background: $background;
+// }
+
 
 #app {
   /* max-width: 1280px; */
@@ -29,8 +32,7 @@ a,
 }
 
 @media (min-width: 1024px) {
-
   #app {
-width: 100%;
+    width: 100%;
   }
 }

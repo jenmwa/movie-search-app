@@ -1,6 +1,5 @@
 <script setup lang="ts">
 
-
 </script>
 
 <template>
@@ -25,13 +24,13 @@
         <li>Start over? <br>just hit refresh!</li>
        </ul>
 
-       <p class='p-last'>Jenny Waller May 2023</p>
+       <p class='p-last'>Enjoy your search!</p>
     </div>
   </section>
 
 </template>
 
-<style>
+<style lang="scss">
 .about {
   max-width: 400px;
   margin: 0 auto 6rem auto;
@@ -53,6 +52,7 @@ p {
 
 .p-last {
   margin-top: 4rem;
+  color: $darkyellow;
 }
 
 
