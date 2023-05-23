@@ -3,7 +3,6 @@ import { ref, onMounted } from 'vue';
 
 const showSpinner = ref(true);
 
-// const emit = defineEmits(['dotsLoader']);
 const emit = defineEmits<{
     (emits:'dotsLoader'): void
 }>();

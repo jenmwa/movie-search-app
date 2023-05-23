@@ -100,7 +100,6 @@ button {
 @media screen and (min-width: 768px) {
   .movie-container {
     min-width: 100%;
-    /* justify-content: space-between; */
   }
 
   .upper {
