@@ -4,13 +4,17 @@ import { ref } from 'vue'
 // import { API_KEY } from '../config'
 import { type IMovie } from '../models/IMovie'
 import MoviesComponent from '../components/MoviesComponent.vue'
+import LoadSpinner from './LoadSpinner.vue'
 
 const searchWord = ref('');
 const movies = ref<IMovie[]>(
   JSON.parse(sessionStorage.getItem('movies') || "[]")
 );
 
+const showSpinner = ref(false);
+
 const search = async () => {
+showSpinner.value = true;
   try {
     const response = await axios.get(`https://www.omdbapi.com/?s=${searchWord.value}&apikey=5eed9320`)
     console.log(response.data);
@@ -30,6 +34,7 @@ const search = async () => {
     console.error('API request failed:', error);
   }
   searchWord.value = '';
+  showSpinner.value = false;
 }
 
 const resetBtn = () => {
@@ -53,6 +58,7 @@ const resetBtn = () => {
       <button class='search-btn' id='searchBtn' @click='search'>SEARCH</button>
       <button class='reset-btn' @click="resetBtn">Reset</button>
     </div>
+    <LoadSpinner v-if="showSpinner"/>
     <MoviesComponent :movies="movies" />
 </main>
 
