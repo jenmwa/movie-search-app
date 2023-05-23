@@ -18,7 +18,7 @@ const goto = (imdbID: string) => {
 
 <template>
 <section class="result">
-  <p v-if="movies.length > 0">your top 10 result:</p>
+  <p v-if="movies.length > 0">your top result:</p>
   <div class='div-wrapper'>
     <article class='movie-container' v-for='movie in movies' :key='movie.imdbID'>
       <div class='upper'>
@@ -62,7 +62,7 @@ button {
 }
 
 .div-wrapper{
-  margin-block: 2rem;
+  margin: 2rem 0 4rem 0;
   }
 
 .movie-container {

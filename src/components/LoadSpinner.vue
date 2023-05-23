@@ -21,19 +21,23 @@ onMounted(() => {
 
 <template>
 
-<!-- <div v-if="isLoader"> -->
+<div class="loader-wrapper">
     <div v-if="showSpinner" class="loader-dots">
         <div></div>
         <div></div>
         <div></div>
         <div></div>
     </div>
-<!-- </div> -->
+</div>
 
 </template>
 
 <style scoped lang="scss">
 
+.loader-wrapper {
+    display: flex;
+    justify-content: center;
+}
 .loader-dots {
   display: inline-block;
   position: relative;

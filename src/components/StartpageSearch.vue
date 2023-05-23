@@ -59,7 +59,7 @@ const resetBtn = () => {
       <button class='reset-btn' @click="resetBtn">Reset</button>
     </div>
     <LoadSpinner v-if="showSpinner"/>
-    <MoviesComponent :movies="movies" />
+    <MoviesComponent v-else :movies="movies" />
 </main>
 
 </template>
