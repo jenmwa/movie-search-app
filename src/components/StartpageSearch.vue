@@ -91,10 +91,13 @@ h3 {
   color: whitesmoke;
   background-color: #151515;
   padding-left: 1rem;
-
 }
-input:focus::placeholder {
-  color: transparent;
+
+#searchInput:focus {
+  outline-color: Highlight;
+  outline-color: -webkit-focus-ring-color;
+  outline-style: auto;
+  outline-width: 1px;
 }
 
 .input_wrapper *:not(span) {
