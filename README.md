@@ -1,5 +1,4 @@
-<img src="movie-app.gif" width="350" title="movie search app" alt="a gif showing the movie search app">
-
+<img src="./movie-app.gif" width="700" title="movie search app" alt="a gif showing the movie search app">
 
 # my-router-app Movie Search App Background
 As a part of one of our skill couses in JavaScript, we're learning VUE.js!
