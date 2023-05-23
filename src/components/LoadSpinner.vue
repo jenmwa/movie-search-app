@@ -9,9 +9,7 @@ const emit = defineEmits<{
 }>();
 
 onMounted(() => {
-  console.log(`the component is now mounted.`)
   setTimeout(() => {
-    console.log('5s have passed');
     showSpinner.value = false;
     emit('dotsLoader');
       }, 5000);

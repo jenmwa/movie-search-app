@@ -7,7 +7,6 @@ const props = defineProps({
     required: true,
   }
 })
-console.log(props.movies)
 
 const goto = (imdbID: string) => {
   const url = `https://www.imdb.com/title/${imdbID}/`;

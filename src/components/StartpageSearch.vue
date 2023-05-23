@@ -17,17 +17,14 @@ const search = async () => {
 showSpinner.value = true;
   try {
     const response = await axios.get(`https://www.omdbapi.com/?s=${searchWord.value}&apikey=5eed9320`)
-    console.log(response.data);
 
     if(response.data && response.data.Search) {
       movies.value = response.data.Search;
-      console.log(movies.value);
 
       for(const movie of movies.value) {
         const movieResponse = await axios.get(`https://www.omdbapi.com/?i=${movie.imdbID}&apikey=5eed9320`)
         movie.Plot = movieResponse.data.Plot;
       }
-      console.log(movies.value)
       sessionStorage.setItem('movies', JSON.stringify(response.data.Search))
     }
   } catch (error) {
@@ -38,7 +35,6 @@ showSpinner.value = true;
 }
 
 const resetBtn = () => {
-  console.log('click reset');
   searchWord.value = '';
   movies.value = [];
   sessionStorage.removeItem('movies');
