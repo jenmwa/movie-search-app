@@ -1,11 +1,12 @@
-<img src="./movie-app.gif" width="700" title="movie search app" alt="a gif showing the movie search app">
-![a gif showing the movie search app](./movie-app.gif "Movie search app")
-
 
 # my-router-app Movie Search App Background
 As a part of one of our skill couses in JavaScript, we're learning VUE.js!
 Always easier to learn while doing some project, so this is me trying out to fetch API's (the OMDB api) with Axios and Vue 3 and to create an app using Vue Router for the first time.<br>
 A simple movie search app!<br>
+
+## Demo
+
+<img src="/public/movie-app.gif" width="100%" />
 
 
 ## Tech STACK
