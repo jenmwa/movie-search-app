@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import axios from 'axios'
-import { ref } from 'vue'
-// import { API_KEY } from '../config'
-import { type IMovie } from '../models/IMovie'
-import MoviesComponent from '../components/MoviesComponent.vue'
-import LoadSpinner from './LoadSpinner.vue'
+import axios from 'axios';
+import { ref } from 'vue';
+import { type IMovie } from '../models/IMovie';
+import MoviesComponent from '../components/MoviesComponent.vue';
+import LoadSpinner from './LoadSpinner.vue';
 
 const searchWord = ref('');
 const movies = ref<IMovie[]>(
