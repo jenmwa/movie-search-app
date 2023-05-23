@@ -5,7 +5,7 @@ const showSpinner = ref(true);
 
 // const emit = defineEmits(['dotsLoader']);
 const emit = defineEmits<{
-    (event:'dotsLoader'): void
+    (emits:'dotsLoader'): void
 }>();
 
 onMounted(() => {
