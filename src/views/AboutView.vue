@@ -30,7 +30,7 @@
 
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 .about {
   max-width: 400px;
   margin: 0 auto 6rem auto;

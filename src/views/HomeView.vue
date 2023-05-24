@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import StartpageSearch from '../components/StartpageSearch.vue'
+import HomePage from '../components/HomePage.vue'
 </script>
 
 <template>
   <main>
-    <StartpageSearch />
+    <HomePage />
   </main>
 </template>
