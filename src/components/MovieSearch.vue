@@ -1,15 +1,24 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { type IMovie } from '@/models/IMovie';
 
 const searchWord = ref('');
 
-const emits = defineEmits<{(e: 'search', searchText:string): void}>()
+const emits = defineEmits<{
+  (e: 'search', searchText:string): void;
+  (e: 'reset') :void;
+}>();
 
-const resetBtn = () => {
-  searchWord.value = '';
-//movies.value = [];
-  sessionStorage.removeItem('movies');
-}
+defineProps({
+  movies: {
+    type: Array as () => IMovie[],
+    default: () => [],
+  }
+})
+
+const resetMovies = () => {
+  emits('reset');
+};
 
 const search = () => {
   emits('search', searchWord.value);
@@ -26,11 +35,11 @@ const search = () => {
       </label>
     </div>
     <button class='search-btn' id='searchBtn' @click='search'>SEARCH</button>
-    <button class='reset-btn' @click="resetBtn">Reset</button>
+    <button class='reset-btn' @click="resetMovies">Reset</button>
   </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 
 .input_wrapper {
   position: relative;

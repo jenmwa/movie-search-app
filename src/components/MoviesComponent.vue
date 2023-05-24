@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { type IMovie } from '../models/IMovie'
 
-const props = defineProps({
+defineProps({
   movies: {
     type: Array as () => IMovie[],
-    required: true,
+    default: () => [],
   }
 })
 
@@ -17,9 +17,9 @@ const goto = (imdbID: string) => {
 
 <template>
 <section class="result">
-  <p v-if="props.movies.length > 0">your top result:</p>
+  <p v-if="movies.length > 0">your top result:</p>
   <div class='div-wrapper'>
-    <article class='movie-container' v-for='movie in props.movies' :key='movie.imdbID'>
+    <article class='movie-container' v-for='movie in movies' :key='movie.imdbID'>
       <div class='upper'>
         <div class="movie_img">
           <img class='img-poster' :src='movie.Poster === "N/A" ? "/placeholder.png" : movie.Poster' width='375' :alt="'movieposter for ' + movie.Title"/>
@@ -41,7 +41,7 @@ const goto = (imdbID: string) => {
 
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 
 
 h4 {
